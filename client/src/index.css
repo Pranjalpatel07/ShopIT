@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+
+@layer base {
+  * {
+    @apply m-0 p-0 box-border;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-50 min-h-screen overflow-x-hidden;
+  }
+
+  a {
+    @apply no-underline text-inherit transition-all duration-300;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+      @apply font-bold mb-[10px];
+      letter-spacing: -0.5px;
+    }
+  h1 {
+        font-size: 2.3rem;
+    }
+
+  h2 {
+    font-size: 2.2rem;
+    background: linear-gradient(to right, #ffffff, #a1a1aa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Reusable Utility Classes */
+@layer components {
+  .main-content {
+    @apply min-h-[85vh] max-w-[1400px] mx-auto px-5 py-10;
+    animation: fadeIn 0.6s ease-in-out;
+  }
+
+  .btn {
+    @apply inline-block cursor-pointer rounded-lg border-none px-6 py-3 text-[15px] font-semibold text-white text-center transition-all duration-300;
+    background: linear-gradient(135deg, #f97316, #ea580c 100%);
+    box-shadow: 0 4px 14px rgba(234, 88, 12, 0.3);
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(234, 88, 12, 0.5);
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .home-container {
+    @apply flex min-h-[calc(100vh-140px)] flex-col gap-9 px-6 pt-10 pb-15;
+  }
+
+  .hero-banner {
+    @apply rounded-[28px] border border-white/5 px-8 py-9;
+    background:
+      radial-gradient(circle at top left, rgba(249,115,22,0.24), transparent 34%),
+      linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0));
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+  }
+
+  .hero-copy {
+    @apply max-w-[720px];
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center uppercase tracking-[0.2em] text-xs text-orange-500 mb-[18px];
+  }
+
+  .section-heading {
+    @apply flex items-baseline justify-between gap-[18px] mb-[22px];
+  }
+
+  .section-description {
+    @apply mt-1.5 max-w-[680px] text-[0.95rem] text-zinc-300;
+  }
+
+  .product-grid {
+    @apply grid gap-5 items-stretch;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
+
+  .loading-state,
+  .no-products {
+    @apply py-10 text-center text-base text-zinc-300;
+  }
+}
+
+/* Custom Animation */
+@theme {
+  --animate-fadeIn: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
