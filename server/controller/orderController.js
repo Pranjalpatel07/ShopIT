@@ -32,9 +32,10 @@ const createOrder = async (req, res) => {
 
 const myOrders = async (req, res) => {
     try{
-        const orders = await Order.find({user: req.user._id}).populate('items.productId', 'name price');
+        const orders = await Order.find({user: req.user._id})
         res.status(200).json({orders})
     }catch(error){
+        console.log(error.message);
         res.status(500).json({message:"Server error while fetching orders",error})
     }
 };

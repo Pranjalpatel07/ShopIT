@@ -17,7 +17,21 @@ export async function fetchAdminStats() {
     }
 }
 
-export async function getProducts(token) {
+// Product Routes
+
+export async function createProduct(productData) {
+    try {
+        const response = await api.post('/api/products', productData, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
+        return response;
+    } catch (error) {
+        console.error("Error creating product:", error.message);
+        throw new Error("Failed to create product");
+    }
+}
+
+export async function getProducts() {
     try {
         const response = await api.get('/api/products', {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
@@ -65,6 +79,8 @@ export async function updateProduct(productId, updatedData) {
     }
 }
 
+// All the order Routes 
+
 export async function getAllOrders() {    
     try {
         const response = await api.get(`/api/orders`, {
@@ -89,6 +105,20 @@ export async function updateOrderStatus(orderId, status) {
         throw new Error("Failed to update order status");
     }
 }
+
+export async function getMyOrders() {
+    try{
+        const response = await api.get('/api/orders/myorders',{
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        })
+        return response.data;
+    } catch (error) {
+        throw error;
+    }
+    
+}
+
+// fetch all users (admin only)
 
 export async function fetchAllUsers() {
     try {

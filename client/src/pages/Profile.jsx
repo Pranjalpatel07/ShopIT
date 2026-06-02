@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { AuthContext } from '../context/Authcontext.jsx';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
+import {getMyOrders} from '../services/AdminService.js'
 
 const Profile = () => {
   const { user, logout } = useContext(AuthContext);
@@ -17,11 +17,8 @@ const Profile = () => {
 
     const fetchMyOrders = async () => {
       try {
-        const res = await axios.get('/api/orders/myorders', {
-          headers: { Authorization: `Bearer ${user.token}` },
-        });
-        
-        setOrders(Array.isArray(res.data) ? res.data : []);
+        const res = await getMyOrders();
+        setOrders(Array.isArray(res.orders) ? res.orders : []);
       } catch (error) {
         console.error(error);
         // Token obsolete or 401: clear and bounce

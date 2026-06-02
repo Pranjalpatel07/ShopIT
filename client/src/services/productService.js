@@ -7,7 +7,9 @@ const api = axios.create({
 
 export async function getProduct() {
     try {
-        const response = await api.get('/api/products')
+        const response = await api.get('/api/products',{
+             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        })
         return response.data;
     } catch (error) {
         throw error;
@@ -16,7 +18,9 @@ export async function getProduct() {
 
 export async function getProductById(id) {
    try{
-    const response = await api.get(`/api/products/${id}`)
+    const response = await api.get(`/api/products/${id}`,{
+         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+    })
     return response.data;
    } catch (error) {
         throw error;

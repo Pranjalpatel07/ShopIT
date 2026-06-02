@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { AuthContext } from '../context/Authcontext.jsx';
 import { useNavigate } from 'react-router-dom';
-// import {createProduct} from '../services/AdminService.js';
+import { createProduct } from '../services/AdminService.js';
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
@@ -35,9 +35,10 @@ const AddProduct = () => {
     data.append('image', image);
 
     try {
-      
+      const res = await createProduct(data);
+
       if (res.status === 201 || res.status === 200) {
-        alert('Product created successfully with Cloudinary Image URL!');
+        alert('Product created successfully');
         navigate('/shop');
       }
     } catch (error) {
