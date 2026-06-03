@@ -12,7 +12,6 @@ const AdminUsers = () => {
       
       try {
         const res = await fetchAllUsers();
-        console.log("Fetched users:", res.data);
         setUsers(Array.isArray(res.data) ? res.data : []);
       } catch (error) {
         console.error("Error fetching users:", error);

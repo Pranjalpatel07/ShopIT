@@ -19,15 +19,16 @@ import ManageProducts from './Admin/AdminProducts.jsx'
 import EditProduct from './Admin/EditProducts.jsx'
 import AdminOrders from './Admin/AdminOrders.jsx'
 import AdminUsers from './Admin/AdminUsers.jsx'
+import CategoriesPage from './pages/Shop.jsx'
+import ScrollToTop from './components/ScrollToTop.jsx' 
 
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
+      <ScrollToTop />
 
       <Navbar />
 
-        <main className="grow">
       <Routes>
         <Route path='/' element={<Home />} />
 
@@ -35,6 +36,7 @@ function App() {
 
         <Route path='/login' element={<Login/>}/>
 
+        <Route path='/shop' element={<CategoriesPage/>}/>
         <Route path='/products/:id' element={<ProductDetail/>} />
         <Route path='/cart' element={<Cart/>} />
         <Route path='/checkout' element={<Checkout/>} />
@@ -57,11 +59,9 @@ function App() {
         <Route path='/return' element={<Return/>}/>
 
       </Routes>
-        </main>
-
 
       <Footer />
-      </div>
+
     </Router>
   )
 }

@@ -6,7 +6,7 @@ const ProductCard = ({ product }) => {
     if (!product) return null; 
 
     return (
-        <div className="group flex flex-col relative bg-zinc-900 border border-white/5 rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-[400ms] ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] hover:ring-1 hover:ring-orange-500/30">
+        <div className="group flex flex-col relative bg-zinc-900 border border-white/5 rounded-xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.3)] transition-all duration-400 ease-[cubic-bezier(0.175,0.885,0.32,1.275)] hover:-translate-y-2 hover:shadow-[0_12px_30px_rgba(0,0,0,0.5)] hover:ring-1 hover:ring-orange-500/30">
             
             <div className="overflow-hidden">
                 <img 

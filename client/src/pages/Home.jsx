@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ProductCard from '../components/ProductCart.jsx'
-import { getProduct } from "../services/productService.js";
+import { getProducts } from "../services/AdminService.js";
 
 const Home = () => {
     const [products, setProducts] = useState([]);
@@ -9,7 +9,7 @@ const Home = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await getProduct();
+                const response = await getProducts();
                 setProducts(response);
             } catch (error) {
                 console.error('Error fetching products:', error);

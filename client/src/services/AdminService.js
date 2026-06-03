@@ -43,6 +43,18 @@ export async function getProducts() {
     }
 }
 
+export async function getProductByCategory(category) {
+    try {
+        const response = await api.get(`/api/products/category?category=${category}`, {
+            headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
+        });
+        return response;
+    } catch (error) {
+        console.error("Error fetching products by category:", error.message);
+        throw new Error("Failed to fetch products by category");
+    }
+}
+
 export async function getProductById(id) {
     try {
         const response = await api.get(`/api/products/${id}`, {

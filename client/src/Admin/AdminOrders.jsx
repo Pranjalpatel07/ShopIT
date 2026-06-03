@@ -65,7 +65,7 @@ const AdminOrders = () => {
             {orders.map((order) => (
               <tr key={order._id} className="border-b border-white/10 hover:bg-zinc-800/50 transition-colors">
                 <td className="p-4 text-zinc-300 font-mono text-sm">{order._id.substring(0, 8)}...</td>
-                <td className="p-4 text-zinc-300">{order.userId?.name || <span className="text-zinc-500 italic">Deleted User</span>}</td>
+                <td className="p-4 text-zinc-300">{order.user?.name || <span className="text-zinc-500 italic">Deleted User</span>}</td>
                 <td className="p-4 text-emerald-500 font-medium">₹{order.totalAmount.toFixed(2)}</td>
                 <td className="p-4 text-zinc-300">{new Date(order.createdAt).toLocaleDateString()}</td>
                 <td className="p-4">
