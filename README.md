@@ -1,5 +1,5 @@
 -- Just build ShopIT a E-commerce website for shopping --
 
-- Currently working on transaction and other features,
+- Test transaction and other features added,
 - Debugging & optimizing it for better experience 
   NEW - Bypass transaction feature added for testing.
